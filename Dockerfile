@@ -6,7 +6,7 @@ RUN apt-get update && \
     apt-get clean
 
 # Set JAVA_HOME environment variable
-ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-arm64
+ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64
 
 USER airflow
 
