@@ -6,7 +6,11 @@ RUN apt-get update && \
     apt-get clean
 
 # Set JAVA_HOME environment variable
-ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64
+RUN if [ "$(uname -m)" = "arm64" ]; then \
+      export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-arm64; \
+    else \
+      export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64; \
+    fi
 
 USER airflow
 

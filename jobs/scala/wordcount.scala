@@ -5,7 +5,7 @@ object WordCount {
     val spark = SparkSession.builder.appName("Word Count").master("spark://spark-master:7077").getOrCreate()
     val sc = spark.sparkContext
 
-    val textData = sc.parallelize(List("Hello World", "Hello spark", "Hello Docker", "Hello Scala", "Hello Yusuf"))
+    val textData = sc.parallelize(List("Hello World", "Hello spark", "Hello Docker", "Hello Scala", "Hello Fernando"))
 
     val counts = textData.flatMap(line => line.split(" "))
                             .map(word => (word, 1))
