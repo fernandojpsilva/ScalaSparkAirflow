@@ -60,7 +60,14 @@ services:
 
   scheduler:
     <<: *airflow-common
-    command: bash -c "airflow db migrate && airflow users create --username admin --firstname Fernando --lastname Silva --role Admin --email fjo.psilva@gmail.com --password admin && airflow scheduler"
+    command: bash -c "
+      airflow db migrate && 
+      airflow users create --username admin --firstname Fernando --lastname Silva --role Admin --email fjo.psilva@gmail.com --password admin &&
+      airflow connections add 'spark-conn' \
+        --conn-type 'spark' \
+        --conn-host 'spark://spark-master' \
+        --conn-port '7077' && 
+      airflow scheduler"
 
 networks:
   fjps-network:

@@ -1,8 +1,13 @@
 import org.apache.spark.sql.SparkSession
+import
 
 object WordCount {
   def main(args: Array[String]): Unit = {
-    val spark = SparkSession.builder.appName("Word Count").master("spark://spark-master:7077").getOrCreate()
+    val spark = SparkSession
+      .builder
+      .appName("Word Count")
+      .master("spark://spark-master:7077")
+      .getOrCreate()
     val sc = spark.sparkContext
 
     val textData = sc.parallelize(List("Hello World", "Hello spark", "Hello Docker", "Hello Scala", "Hello Fernando"))

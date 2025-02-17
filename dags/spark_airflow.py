@@ -25,7 +25,6 @@ scala_job = SparkSubmitOperator(
     dag=dag
 )
 
-
 end = PythonOperator(
     task_id="end",
     python_callable = lambda: print("Jobs completed successfully"),
