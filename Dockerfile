@@ -7,4 +7,4 @@ RUN apt-get update && \
 
 USER airflow
 
-RUN pip install apache-airflow apache-airflow-providers-apache-spark apache-airflow-providers-openlineage==1.12.1 pyspark
+RUN pip install apache-airflow apache-airflow-providers-apache-spark apache-airflow-providers-openlineage==1.12.1 pyspark kafka-python
